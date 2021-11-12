@@ -1,41 +1,57 @@
 <template>
   <div class="calculator">
-    <div class="inputItem">
-      <div>
+    <div class="inputSection">
+      <div class="inputItem" v-if="calc.winkelA">
+        <label for="SeiteA">Seiten Länge A <br>(not required)</label>
+        <input v-model="calc.seiteA" name="SeiteA" type="number">
+      </div>
+      <div class="inputItem" v-if="!calc.winkelA">
         <label for="SeiteA">Seiten Länge A</label>
         <input v-model="calc.seiteA" name="SeiteA" type="number">
       </div>
-      <div v-if="!calc.seiteA">
+      <div class="inputItem" v-if="calc.seiteA">
+        <label for="Winkela">Winkel Alpha <br>(not required)</label>
+        <input v-model="calc.winkelA" name="Winkela" type="number">
+      </div>
+      <div class="inputItem" v-if="!calc.seiteA">
         <label for="Winkela">Winkel Alpha</label>
-        <input name="Winkela" type="number">
+        <input v-model="calc.winkelA" name="Winkela" type="number">
       </div>
     </div>
-    <div class="inputItem">
-      <div>
+    <div class="inputSection">
+      <div class="inputItem" v-if="calc.winkelB">
+        <label for="SeiteB">Seiten Länge B <br>(not required)</label>
+        <input v-model="calc.seiteB" name="SeiteB" type="number">
+      </div>
+      <div class="inputItem" v-if="!calc.winkelB">
         <label for="SeiteB">Seiten Länge B</label>
         <input v-model="calc.seiteB" name="SeiteB" type="number">
       </div>
-      <div v-if="calc.seiteB">
-        <label for="Winkelb">Winkel Beta</label>
-        <input name="Winkelb" type="number" placeholder="Not required">
+      <div class="inputItem" v-if="calc.seiteB">
+        <label for="Winkelb">Winkel Beta <br>(not required)</label>
+        <input v-model="calc.winkelB" name="Winkelb" type="number">
       </div>
-      <div v-if="!calc.seiteB">
+      <div class="inputItem" v-if="!calc.seiteB">
         <label for="Winkelb">Winkel Beta</label>
-        <input name="Winkelb" type="number">
+        <input v-model="calc.winkelB" name="Winkelb" type="number">
       </div>
     </div>
-    <div class="inputItem">
-      <div>
+    <div class="inputSection">
+      <div class="inputItem" v-if="calc.winkelC">
+        <label for="SeiteC">Seiten Länge C <br>(not required)</label>
+        <input v-model="calc.seiteC" name="SeiteC" type="number">
+      </div>
+      <div class="inputItem" v-if="!calc.winkelC">
         <label for="SeiteC">Seiten Länge C</label>
         <input v-model="calc.seiteC" name="SeiteC" type="number">
       </div>
-      <div v-if="calc.seiteC">
-        <label for="Winkelc">Winkel Gamma</label>
-        <input name="Winkelc" type="number" placeholder="Not required">
+      <div class="inputItem" v-if="calc.seiteC">
+        <label for="Winkelc">Winkel Gamma <br>(not required)</label>
+        <input v-model="calc.winkelC" name="Winkelc" type="number">
       </div>
-      <div v-if="!calc.seiteC">
+      <div class="inputItem" v-if="!calc.seiteC">
         <label for="Winkelc">Winkel Gamma</label>
-        <input name="Winkelc" type="number">
+        <input v-model="calc.winkelC" name="Winkelc" type="number">
       </div>
     </div>
   </div>
@@ -65,11 +81,16 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.inputItem{
+.inputSection{
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   margin-right: 20px;
+}
+
+.inputItem{
+  display: flex;
+  flex-direction: column;
 }
 
 input{

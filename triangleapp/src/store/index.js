@@ -5,7 +5,10 @@ export default createStore({
     calcData: {
       seiteA: "",
       seiteB: "",
-      SeiteC: ""
+      seiteC: "",
+      winkelA: "",
+      winkelB: "",
+      winkelC: ""
     }
   },
   mutations: {
