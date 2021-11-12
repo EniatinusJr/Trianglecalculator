@@ -54,6 +54,7 @@
         <input v-model="calc.winkelC" name="Winkelc" type="number">
       </div>
     </div>
+      <button @click="pythagorashk(23, 12)"></button>
   </div>
 </template>
 
@@ -67,7 +68,28 @@ export default {
     calc(){
       return this.$store.state.calcData;
     }
+  },
+  methods:{
+   /** Pythagoras*/
+
+    //kathete and kathete
+    pythagoraskk(kathete1, kathete2){
+      let kat1 = kathete1 * kathete1;
+      let kat2 = kathete2 * kathete2;
+      let a = kat1 + kat2;
+      let sum = Math.sqrt(a);
+      return sum;
+    },
+    //Hypothenuse and Kathete
+    pythagorashk(hypothenuse, kathete){
+      let hyp = hypothenuse * hypothenuse;
+      let kat = kathete * kathete;
+      let a = hyp - kat;
+      let sum = Math.sqrt(a);
+      return sum;
+    }
   }
+  
 }
 </script>
 
