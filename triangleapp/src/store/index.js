@@ -3,12 +3,12 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     calcData: {
-      seiteA: 0,
-      seiteB: 0,
-      seiteC: 0,
-      winkelA: 0,
-      winkelB: 0,
-      winkelC: 0
+      seiteA: null,
+      seiteB: null,
+      seiteC: null,
+      winkelA: null,
+      winkelB: null,
+      winkelC: null
     }
   },
   mutations: {
