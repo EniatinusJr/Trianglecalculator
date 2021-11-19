@@ -54,11 +54,13 @@
         <input v-model="calc.winkelC" name="Winkelc" type="number">
       </div>
     </div>
-      <button @click="pythagorashk(23, 12)"></button>
+      <button @click="cosinus(10, 18, 20)"></button>
   </div>
 </template>
 
 <script>
+
+import { mapState } from 'vuex'
 export default {
   name: 'Calculator',
   props: {
@@ -73,7 +75,7 @@ export default {
    /** Pythagoras*/
 
     //kathete and kathete
-    pythagoraskk(kathete1, kathete2){
+    pythagoras1(kathete1, kathete2){
       let kat1 = kathete1 * kathete1;
       let kat2 = kathete2 * kathete2;
       let a = kat1 + kat2;
@@ -81,12 +83,38 @@ export default {
       return sum;
     },
     //Hypothenuse and Kathete
-    pythagorashk(hypothenuse, kathete){
+    pythagoras2(hypothenuse, kathete){
       let hyp = hypothenuse * hypothenuse;
       let kat = kathete * kathete;
       let a = hyp - kat;
       let sum = Math.sqrt(a);
       return sum;
+    },
+
+     /** Kosinus*/
+
+    //3 Seiten
+    cosinus(a, b, c){
+      if(a+b<=c || a+c<=b ||b+c<=a){
+        //Nicht möglich
+        console.log("not possible");
+      }
+      let winkel1 = 180/Math.PI*Math.acos((b*b-(-c*c)-a*a)/(2*b*c));
+      let winkel2 = 180/Math.PI*Math.acos((a*a-(-c*c)-b*b)/(2*a*c));
+      let winkel3 = 180/Math.PI*Math.acos((a*a-(-b*b)-c*c)/(2*a*b));
+      
+      this.$store.commit('updateWinkelA', winkel1);
+      this.$store.commit('updateWinkelB', winkel2);
+      this.$store.commit('updateWinkelC', winkel3);
+    
+    },
+    //2 Seiten, 1 Winkel
+    kosinus2(a, b, winkel){
+      let aSqrd = a * a;
+      let bSqrd = b * b;
+      let cSqrd = c * c;
+
+
     }
   }
   
