@@ -57,6 +57,7 @@
       </div>
     </div>
     <button class="submit" id="submit" @click="getValues">Submit</button>
+
   </div>
 </template>
 
@@ -190,6 +191,7 @@ export default {
 
   }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
