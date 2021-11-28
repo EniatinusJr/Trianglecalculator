@@ -187,8 +187,6 @@ export default {
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteA", sum);
           }
-
-          // Wänn alli if's failed dänn isch kein winkel 90 grad
         }
         // Jetzte wo mer 3 Site hend wieder mit cosinus de rest usrechne
         if (data.seiteA != null && data.seiteB != null && data.seiteC != null) {
@@ -229,6 +227,8 @@ export default {
           this.$store.commit("updateWinkelB", winkel2);
           this.$store.commit("updateWinkelC", winkel3);
         }
+
+        //Wenn bis da nüt usgführt worde isch hemmer 2 Site und 1 winkel wo nöd 90 isch
       } else if (
         (data.winkelA != null && data.winkelB != null) ||
         (data.winkelA != null && data.winkelC) ||
