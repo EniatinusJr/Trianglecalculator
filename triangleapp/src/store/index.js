@@ -16,7 +16,7 @@ export default createStore({
       state.calcData.seiteA = num;
     },
     updateSeiteB (state, num) {
-      state.calcData.seiteA = num;
+      state.calcData.seiteB = num;
     },
     updateSeiteC (state, num) {
       state.calcData.seiteC = num;
