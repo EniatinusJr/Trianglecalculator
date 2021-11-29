@@ -1,32 +1,23 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router" target="_blank" rel="noopener">router</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex" target="_blank" rel="noopener">vuex</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+   <section class="navigation">
+  <div class="nav-container">
+    <div class="brand">
+      <a href="/"><img src="../assets/BBW_Logo_Weiss.png" alt="Logo"></a>
+    </div>
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <router-link to="/calculator">Rechner</router-link>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
   </div>
 </template>
 
@@ -41,18 +32,152 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+img{
+  height: 60px;
+  padding-top: 5px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.navigation {
+	 height: 70px;
+	 background: #262626;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+ .brand {
+	 position: absolute;
+	 padding-left: 20px;
+	 float: left;
+	 line-height: 70px;
+	 text-transform: uppercase;
+	 font-size: 1.4em;
 }
-a {
-  color: #42b983;
+ .brand a, .brand a:visited {
+	 color: #fff;
+	 text-decoration: none;
 }
+ .nav-container {
+	 max-width: 1000px;
+	 margin: 0 auto;
+}
+ nav {
+	 float: right;
+}
+ nav ul {
+	 list-style: none;
+	 margin: 0;
+	 padding: 0;
+}
+ nav ul li {
+	 float: left;
+	 position: relative;
+}
+ nav ul li a, nav ul li a:visited {
+	 display: block;
+	 padding: 0 20px;
+	 line-height: 70px;
+	 background: #262626;
+	 color: #fff;
+	 text-decoration: none;
+}
+ nav ul li a:hover, nav ul li a:visited:hover {
+	 background: #2581dc;
+	 color: #fff;
+}
+ nav ul li a:not(:only-child):after, nav ul li a:visited:not(:only-child):after {
+	 padding-left: 4px;
+	 content: ' ▾';
+}
+ nav ul li ul li {
+	 min-width: 190px;
+}
+ nav ul li ul li a {
+	 padding: 15px;
+	 line-height: 20px;
+}
+ .nav-dropdown {
+	 position: absolute;
+	 display: none;
+	 z-index: 1;
+	 box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+/* Mobile navigation */
+ .nav-mobile {
+	 display: none;
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 background: #262626;
+	 height: 70px;
+	 width: 70px;
+}
+ @media only screen and (max-width: 798px) {
+	 .nav-mobile {
+		 display: block;
+	}
+	 nav {
+		 width: 100%;
+		 padding: 70px 0 15px;
+	}
+	 nav ul {
+		 display: none;
+	}
+	 nav ul li {
+		 float: none;
+	}
+	 nav ul li a {
+		 padding: 15px;
+		 line-height: 20px;
+	}
+	 nav ul li ul li a {
+		 padding-left: 30px;
+	}
+	 .nav-dropdown {
+		 position: static;
+	}
+}
+ @media screen and (min-width: 799px) {
+	 .nav-list {
+		 display: block !important;
+	}
+}
+ #nav-toggle {
+	 position: absolute;
+	 left: 18px;
+	 top: 22px;
+	 cursor: pointer;
+	 padding: 10px 35px 16px 0px;
+}
+ #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+	 cursor: pointer;
+	 border-radius: 1px;
+	 height: 5px;
+	 width: 35px;
+	 background: #fff;
+	 position: absolute;
+	 display: block;
+	 content: '';
+	 transition: all 300ms ease-in-out;
+}
+ #nav-toggle span:before {
+	 top: -10px;
+}
+ #nav-toggle span:after {
+	 bottom: -10px;
+}
+ #nav-toggle.active span {
+	 background-color: transparent;
+}
+ #nav-toggle.active span:before, #nav-toggle.active span:after {
+	 top: 0;
+}
+ #nav-toggle.active span:before {
+	 transform: rotate(45deg);
+}
+ #nav-toggle.active span:after {
+	 transform: rotate(-45deg);
+}
+ article {
+	 max-width: 1000px;
+	 margin: 0 auto;
+	 padding: 10px;
+}
+ 
 </style>
