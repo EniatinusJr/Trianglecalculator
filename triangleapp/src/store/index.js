@@ -13,22 +13,46 @@ export default createStore({
   },
   mutations: {
     updateSeiteA (state, num) {
-      state.calcData.seiteA = num.toFixed(2);
+      if(num == null){
+        state.calcData.seiteA = num;
+      }else{
+        state.calcData.seiteA = num.toFixed(2);
+      }
     },
     updateSeiteB (state, num) {
-      state.calcData.seiteB = num.toFixed(2);
+      if(num == null){
+        state.calcData.seiteB = num;
+      }else{
+        state.calcData.seiteB = num.toFixed(2);
+      }
     },
     updateSeiteC (state, num) {
-      state.calcData.seiteC = num.toFixed(2);
+      if(num == null){
+        state.calcData.seiteC = num;
+      }else{
+        state.calcData.seiteC = num.toFixed(2);
+      }
     },
     updateWinkelA (state, num) {
-      state.calcData.winkelA = num.toFixed(2);
+      if(num == null){
+        state.calcData.winkelA = num;
+      }else{
+        state.calcData.winkelA = num.toFixed(2);
+      }
     },
     updateWinkelB (state, num) {
-      state.calcData.winkelB = num.toFixed(2);
+      if(num == null){
+        state.calcData.winkelB = num;
+      }else{
+        state.calcData.winkelB = num.toFixed(2);
+      }
     },
     updateWinkelC (state, num) {
-      state.calcData.winkelC = num.toFixed(2);
+      if(num == null){
+        state.calcData.winkelC = num;
+      }else{
+        state.calcData.winkelC = num.toFixed(2);
+      }
     },
   },
   actions: {
