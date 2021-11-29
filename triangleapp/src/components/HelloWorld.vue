@@ -9,7 +9,7 @@
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
-          <a href="/">Home</a>
+          <router-link to="/">Home</router-link>
         </li>
         <li>
           <router-link to="/calculator">Rechner</router-link>
