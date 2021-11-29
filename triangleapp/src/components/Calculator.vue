@@ -71,7 +71,7 @@ export default {
         data.winkelC
       );
       
-
+      let pythagoras = false;
       let counter = 0;
       Object.values(data).forEach((element) => {
         if (element != null) {
@@ -123,6 +123,7 @@ export default {
         this.$store.commit("updateWinkelA", winkel1);
         this.$store.commit("updateWinkelB", winkel2);
         this.$store.commit("updateWinkelC", winkel3);
+
       } else if (
         (data.seiteA != null && data.seiteB != null) ||
         (data.seiteA != null && data.seiteC) ||
@@ -134,14 +135,16 @@ export default {
             let kat = data.seiteB * data.seiteB;
             let a = hyp - kat;
             let sum = Math.sqrt(a);
-
             this.$store.commit("updateSeiteC", sum);
+            pythagoras = true;
+
           } else if (data.winkelB == 90) {
             let hyp = data.seiteB * data.seiteB;
             let kat = data.seiteA * data.seiteA;
             let a = hyp - kat;
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteC", sum);
+            pythagoras = true;
 
           } else if (data.winkelC == 90) {
             let kat1 = data.seiteA * data.seiteA;
@@ -149,6 +152,7 @@ export default {
             let a = kat1 + kat2;
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteC", sum);
+            pythagoras = true;
 
           } else if(data.winkelA != null){
             if(Math.abs(Math.sin(data.winkelA * Math.PI / 180)* data.seiteB/data.seiteA) >1){
@@ -188,6 +192,7 @@ export default {
             let a = hyp - kat;
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteB", sum);
+            pythagoras = true;
 
           } else if (data.winkelB == 90) {
             let kat1 = data.seiteA * data.seiteA;
@@ -195,6 +200,7 @@ export default {
             let a = kat1 + kat2;
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteB", sum);
+            pythagoras = true;
 
           } else if (data.winkelC == 90) {
             let hyp = data.seiteC * data.seiteC;
@@ -202,6 +208,7 @@ export default {
             let a = hyp - kat;
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteB", sum);
+            pythagoras = true;
 
           }else if(data.winkelA != null){
             if(Math.abs(Math.sin(data.winkelA * Math.PI / 180)* data.seiteC/data.seiteA) >1){
@@ -242,6 +249,7 @@ export default {
             let a = kat1 + kat2;
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteA", sum);
+            pythagoras = true;
 
           } else if (data.winkelB == 90) {
             let hyp = data.seiteB * data.seiteB;
@@ -249,6 +257,7 @@ export default {
             let a = hyp - kat;
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteA", sum);
+            pythagoras = true;
 
           } else if (data.winkelC == 90) {
             let hyp = data.seiteC * data.seiteC;
@@ -256,6 +265,7 @@ export default {
             let a = hyp - kat;
             let sum = Math.sqrt(a);
             this.$store.commit("updateSeiteA", sum);
+            pythagoras = true;
 
           }else if(data.winkelA != null){
             let seiteA=Math.sqrt(data.seiteB*data.seiteB-(-data.seiteC*data.seiteC)-2*data.seiteB*data.seiteC*Math.cos(data.winkelA * Math.PI / 180));
@@ -292,44 +302,44 @@ export default {
         }
         // Jetzte wo mer 3 Site hend wieder mit cosinus de rest usrechne
         // NUR WENN PYTHAGORAS 
-        // if (data.seiteA != null && data.seiteB != null && data.seiteC != null) {
-        //   if (
-        //     data.seiteA + data.seiteB <= data.seiteC ||
-        //     data.seiteA + data.seiteC <= data.seiteB ||
-        //     data.seiteb + data.seiteC <= data.seiteA
-        //   ) {
-        //     //Nicht möglich
-        //     console.log("not possible");
-        //   }
-        //   let winkel1 =
-        //     (180 / Math.PI) *
-        //     Math.acos(
-        //       (data.seiteB * data.seiteB -
-        //         -data.seiteC * data.seiteC -
-        //         data.seiteA * data.seiteA) /
-        //         (2 * data.seiteB * data.seiteC)
-        //     );
-        //   let winkel2 =
-        //     (180 / Math.PI) *
-        //     Math.acos(
-        //       (data.seiteA * data.seiteA -
-        //         -data.seiteC * data.seiteC -
-        //         data.seiteB * data.seiteB) /
-        //         (2 * data.seiteA * data.seiteC)
-        //     );
-        //   let winkel3 =
-        //     (180 / Math.PI) *
-        //     Math.acos(
-        //       (data.seiteA * data.seiteA -
-        //         -data.seiteB * data.seiteB -
-        //         data.seiteC * data.seiteC) /
-        //         (2 * data.seiteA * data.seiteB)
-        //     );
+        if (pythagoras == true && data.seiteA != null && data.seiteB != null && data.seiteC != null) {
+          if (
+            data.seiteA + data.seiteB <= data.seiteC ||
+            data.seiteA + data.seiteC <= data.seiteB ||
+            data.seiteb + data.seiteC <= data.seiteA
+          ) {
+            //Nicht möglich
+            console.log("not possible");
+          }
+          let winkel1 =
+            (180 / Math.PI) *
+            Math.acos(
+              (data.seiteB * data.seiteB -
+                -data.seiteC * data.seiteC -
+                data.seiteA * data.seiteA) /
+                (2 * data.seiteB * data.seiteC)
+            );
+          let winkel2 =
+            (180 / Math.PI) *
+            Math.acos(
+              (data.seiteA * data.seiteA -
+                -data.seiteC * data.seiteC -
+                data.seiteB * data.seiteB) /
+                (2 * data.seiteA * data.seiteC)
+            );
+          let winkel3 =
+            (180 / Math.PI) *
+            Math.acos(
+              (data.seiteA * data.seiteA -
+                -data.seiteB * data.seiteB -
+                data.seiteC * data.seiteC) /
+                (2 * data.seiteA * data.seiteB)
+            );
 
-        //   this.$store.commit("updateWinkelA", winkel1);
-        //   this.$store.commit("updateWinkelB", winkel2);
-        //   this.$store.commit("updateWinkelC", winkel3);
-        // }
+          this.$store.commit("updateWinkelA", winkel1);
+          this.$store.commit("updateWinkelB", winkel2);
+          this.$store.commit("updateWinkelC", winkel3);
+        }
 
         //Wenn bis da nüt usgführt worde isch hemmer 2 Site und 1 winkel wo nöd 90 isch
       } else if (
