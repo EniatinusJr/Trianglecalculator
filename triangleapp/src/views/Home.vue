@@ -1,14 +1,8 @@
 <template>
   <div>
     <article>
-      <h2>Navigation</h2>
-      <p>Responsive Dropdown Navigation Bar.</p>
-      <p>
-        Want to see how it's made?
-        <a href="http://www.taniarascia.com/responsive-dropdown-navigation-bar/"
-          >Read the tutorial!</a
-        >
-      </p>
+      <h2>Text</h2>
+      <p>TextTextTextTextTextText</p>
     </article>
   </div>
 </template>

@@ -69,6 +69,7 @@ img{
 	 float: left;
 	 position: relative;
 }
+
  nav ul li a, nav ul li a:visited {
 	 display: block;
 	 padding: 0 20px;
@@ -76,6 +77,9 @@ img{
 	 background: #262626;
 	 color: #fff;
 	 text-decoration: none;
+}
+ nav ul li a, nav ul li a {
+	 transition: all 0.5s 0s linear;
 }
  nav ul li a:hover, nav ul li a:visited:hover {
 	 background: #2581dc;
