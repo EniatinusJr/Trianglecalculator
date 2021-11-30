@@ -3,38 +3,37 @@
     <div class="calculator">
       <div class="inputSection">
         <div class="inputItem">
-          <label for="SeiteA">Seiten Länge a <br /></label>
+          <label for="SeiteA">Seite a <br /></label>
           <input v-model="calc.seiteA" name="SeiteA" type="number" />
         </div>
         <div class="inputItem">
-          <label for="Winkela">Winkel Alpha <br /></label>
+          <label for="Winkela">Winkel α <br /></label>
           <input v-model="calc.winkelA" name="Winkela" type="number" />
         </div>
       </div>
       <div class="inputSection">
         <div class="inputItem">
-          <label for="SeiteB">Seiten Länge b <br /></label>
+          <label for="SeiteB">Seite b <br /></label>
           <input v-model="calc.seiteB" name="SeiteB" type="number" />
         </div>
         <div class="inputItem">
-          <label for="Winkelb">Winkel Beta <br /></label>
+          <label for="Winkelb">Winkel β <br /></label>
           <input v-model="calc.winkelB" name="Winkelb" type="number" />
         </div>
       </div>
       <div class="inputSection">
         <div class="inputItem">
-          <label for="SeiteC">Seiten Länge c <br /></label>
+          <label for="SeiteC">Seite c <br /></label>
           <input v-model="calc.seiteC" name="SeiteC" type="number" />
         </div>
         <div class="inputItem">
-          <label for="Winkelc">Winkel Gamma <br /></label>
+          <label for="Winkelc">Winkel γ <br /></label>
           <input v-model="calc.winkelC" name="Winkelc" type="number" />
         </div>
       </div>
     </div>
-    <button class="submit" id="submit" @click="getValues">Submit</button
-    ><br /><br />
-    <button class="submit" id="submit" @click="clearValues">Clear</button>
+    <button class="submit" id="submit" @click="getValues">Submit</button>&emsp;
+    <button class="delete" id="submit" @click="clearValues">Clear</button>
     <br /><br />
     <div class="triangle">
       <img class="image" src="../assets/Dreieck16_2.png" alt="lolz" />
@@ -443,12 +442,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .calculator {
-  margin-top: 10rem;
+  margin-top: 5rem;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-left: 10px;
 }
 .inputSection {
   margin-bottom: 20px;
@@ -460,10 +460,14 @@ export default {
 .inputItem {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 input {
   margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+
 }
 .submit {
   width: 8rem;
@@ -472,9 +476,27 @@ input {
   border-style: none;
   border: 1px solid black;
   background-color: #ffffff;
+  transition: all 0.25s linear;
 }
-.submit:active {
-  background-color: grey;
+
+.delete{
+  width: 8rem;
+  height: 2rem;
+  border-radius: 1rem;
+  border-style: none;
+  border: 1px solid black;
+  background-color: #ffffff;
+  transition: all 0.25s linear;
+}
+
+
+.submit:hover {
+  background-color: rgb(37, 214, 105);
+  color: #ffffff;
+}
+
+.delete:hover{
+  background-color: rgb(194, 47, 47);
   color: #ffffff;
 }
 
