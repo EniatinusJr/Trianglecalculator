@@ -349,22 +349,82 @@ export default {
       ) {
         if (data.winkelA != null && data.winkelB) {
           if (data.seiteA != null) {
+            let winkelC = Math.PI-(data.winkelB* Math.PI / 180)-(data.winkelA* Math.PI / 180);
+            this.$store.commit("updateWinkelC", 180 / Math.PI * winkelC);
+            let seiteB = data.seiteA*Math.sin(data.winkelB * Math.PI / 180)/Math.sin(data.winkelA* Math.PI / 180);
+            let seiteC = data.seiteA*Math.sin(winkelC)/Math.sin(data.winkelA* Math.PI / 180);
+            this.$store.commit("updateSeiteB", seiteB);
+            this.$store.commit("updateSeiteC", seiteC);
+
           } else if (data.seiteB != null) {
+            let winkelC = Math.PI-(data.winkelB* Math.PI / 180)-(data.winkelA* Math.PI / 180);
+            this.$store.commit("updateWinkelC", 180 / Math.PI * winkelC);
+            let seiteA = data.seiteB*Math.sin(data.winkelA * Math.PI / 180)/Math.sin(data.winkelB* Math.PI / 180);
+            let seiteC = data.seiteB*Math.sin(winkelC)/Math.sin(data.winkelB* Math.PI / 180);
+            this.$store.commit("updateSeiteA", seiteA);
+            this.$store.commit("updateSeiteC", seiteC);
+
           } else if (data.seiteC != null) {
+            let winkelC = Math.PI-(data.winkelA* Math.PI / 180)-(data.winkelB* Math.PI / 180);
+            this.$store.commit("updateWinkelC", 180 / Math.PI * winkelC);
+            let seiteA = data.seiteC*Math.sin(data.winkelA * Math.PI / 180)/Math.sin(winkelC);
+            let seiteB = data.seiteC*Math.sin(data.winkelB * Math.PI / 180)/Math.sin(winkelC);
+            this.$store.commit("updateSeiteA", seiteA);
+            this.$store.commit("updateSeiteB", seiteB);
           }
         }
 
         if (data.winkelA != null && data.winkelC) {
           if (data.seiteA != null) {
+            let winkelB = Math.PI-(data.winkelC* Math.PI / 180)-(data.winkelA* Math.PI / 180);
+            this.$store.commit("updateWinkelB", 180 / Math.PI * winkelB);
+            let seiteB = data.seiteA*Math.sin(winkelB)/Math.sin(data.winkelA * Math.PI / 180);
+            let seiteC = data.seiteA*Math.sin(data.winkelC * Math.PI / 180)/Math.sin(data.winkelA * Math.PI / 180);
+            this.$store.commit("updateSeiteB", seiteB);
+            this.$store.commit("updateSeiteC", seiteC);
+
           } else if (data.seiteB != null) {
+            let winkelB = Math.PI-(data.winkelA* Math.PI / 180)-(data.winkelC* Math.PI / 180);
+            this.$store.commit("updateWinkelB", 180 / Math.PI * winkelB);
+            let seiteA = data.seiteB*Math.sin(data.winkelA * Math.PI / 180)/Math.sin(winkelB);
+            let seiteC = data.seiteB*Math.sin(data.winkelC * Math.PI / 180)/Math.sin(winkelB);
+            this.$store.commit("updateSeiteA", seiteA);
+            this.$store.commit("updateSeiteC", seiteC);
+
           } else if (data.seiteC != null) {
+            let winkelB = Math.PI-(data.winkelC* Math.PI / 180)-(data.winkelA* Math.PI / 180);
+            this.$store.commit("updateWinkelB", 180 / Math.PI * winkelB);
+            let seiteA = data.seiteC*Math.sin(data.winkelA * Math.PI / 180)/Math.sin(data.winkelC * Math.PI / 180);
+            let seiteB = data.seiteC*Math.sin(winkelB)/Math.sin(data.winkelC * Math.PI / 180);
+            this.$store.commit("updateSeiteA", seiteA);
+            this.$store.commit("updateSeiteB", seiteB);
           }
         }
 
         if (data.winkelB != null && data.winkelC) {
           if (data.seiteA != null) {
+            let winkelA = Math.PI-(data.winkelB* Math.PI / 180)-(data.winkelC* Math.PI / 180);
+            this.$store.commit("updateWinkelA", 180 / Math.PI * winkelA);
+            let seiteB = data.seiteA*Math.sin(data.winkelB * Math.PI / 180)/Math.sin(winkelA);
+            let seiteC = data.seiteA*Math.sin(data.winkelC * Math.PI / 180)/Math.sin(winkelA);
+            this.$store.commit("updateSeiteB", seiteB);
+            this.$store.commit("updateSeiteC", seiteC);
+
           } else if (data.seiteB != null) {
+            let winkelA = Math.PI-(data.winkelC* Math.PI / 180)-(data.winkelB* Math.PI / 180);
+            this.$store.commit("updateWinkelA", 180 / Math.PI * winkelA);
+            let seiteA = data.seiteB*Math.sin(winkelA)/Math.sin(data.winkelB * Math.PI / 180);
+            let seiteC = data.seiteB*Math.sin(data.winkelC * Math.PI / 180)/Math.sin(data.winkelB * Math.PI / 180);
+            this.$store.commit("updateSeiteA", seiteA);
+            this.$store.commit("updateSeiteC", seiteC); 
+            
           } else if (data.seiteC != null) {
+            let winkelA = Math.PI-(data.winkelC* Math.PI / 180)-(data.winkelB* Math.PI / 180);
+            this.$store.commit("updateWinkelA", 180 / Math.PI * winkelA);
+            let seiteA = data.seiteC*Math.sin(winkelA)/Math.sin(data.winkelC * Math.PI / 180);
+            let seiteB = data.seiteC*Math.sin(data.winkelB * Math.PI / 180)/Math.sin(data.winkelC * Math.PI / 180);
+            this.$store.commit("updateSeiteA", seiteA);
+            this.$store.commit("updateSeiteB", seiteB); 
           }
         }
       } else if (
