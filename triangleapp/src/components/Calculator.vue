@@ -445,6 +445,11 @@ export default {
   margin-top: 4rem;
 }
 
+.page{
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .calculator {
   width: 100%;
   display: flex;
