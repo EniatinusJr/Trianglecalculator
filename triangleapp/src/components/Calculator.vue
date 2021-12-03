@@ -139,6 +139,7 @@ export default {
             let kat = data.seiteB * data.seiteB;
             let a = hyp - kat;
             let sum = Math.sqrt(a);
+            if(hyp < kat){alert("Dreieck ist nicht möglich: Seite a muss grösser sein als Seite b");}
             this.$store.commit("updateSeiteC", sum);
             pythagoras = true;
 
@@ -147,6 +148,7 @@ export default {
             let kat = data.seiteA * data.seiteA;
             let a = hyp - kat;
             let sum = Math.sqrt(a);
+            if(hyp < kat){alert("Dreieck ist nicht möglich: Seite b muss grösser sein als Seite a");}
             this.$store.commit("updateSeiteC", sum);
             pythagoras = true;
 
@@ -197,6 +199,7 @@ export default {
             let kat = data.seiteC * data.seite;
             let a = hyp - kat;
             let sum = Math.sqrt(a);
+            if(hyp < kat){alert("Dreieck ist nicht möglich: Seite a muss grösser sein als Seite c");}
             this.$store.commit("updateSeiteB", sum);
             pythagoras = true;
 
@@ -213,6 +216,7 @@ export default {
             let kat = data.seiteA * data.seiteA;
             let a = hyp - kat;
             let sum = Math.sqrt(a);
+            if(hyp < kat){alert("Dreieck ist nicht möglich: Seite c muss grösser sein als Seite a");}
             this.$store.commit("updateSeiteB", sum);
             pythagoras = true;
 
@@ -264,6 +268,7 @@ export default {
             let kat = data.seiteC * data.seiteC;
             let a = hyp - kat;
             let sum = Math.sqrt(a);
+            if(hyp < kat){alert("Dreieck ist nicht möglich: Seite b muss grösser sein als Seite c");}
             this.$store.commit("updateSeiteA", sum);
             pythagoras = true;
 
@@ -272,6 +277,7 @@ export default {
             let kat = data.seiteB * data.seiteB;
             let a = hyp - kat;
             let sum = Math.sqrt(a);
+            if(hyp < kat){alert("Dreieck ist nicht möglich: Seite c muss grösser sein als Seite b");}
             this.$store.commit("updateSeiteA", sum);
             pythagoras = true;
 
