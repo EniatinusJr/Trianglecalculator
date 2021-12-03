@@ -10,7 +10,12 @@
       <p>Wir haben uns für Vue.js entschieden. Grund dafür war, dass alle <br> Applikationsentwickler in der Gruppe bereits damit vertraut sind und der Input in Vue.js <br> einfach leserlich ist verglichen zu anderen JavaScript Frameworks</p>
       <p>Diese Applikation wurde vom Team Schucan, Ringli, Schmid, Karacan gemacht.</p>
       <br>
-      <img src="../assets/logo.png" alt="Vue logo"/>
+      <div class="images">
+        <img src="../assets/logo.png" alt="Vue logo"/>
+        <img src="../assets/htmlLogo.png" alt="Vue logo"/>
+        <img src="../assets/cssLogo.png" style="width: 70px;!important" alt="Vue logo"/>&nbsp;&nbsp;
+        <img src="../assets/javascriptLogo.png" style="width: 70px;!important" alt="Vue logo"/>
+      </div>
     </article>
   </div>
 </template>
@@ -34,5 +39,10 @@ export default {
 	 max-width: 1000px;
 	 margin: 0 auto;
 	 padding: 10px;
+}
+
+img{
+  height: 100px;
+  width: 100px;
 }
 </style>
