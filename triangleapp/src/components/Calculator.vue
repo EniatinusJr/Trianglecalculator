@@ -79,6 +79,7 @@ export default {
       });
 
       if (counter != 3) {
+        alert("Error processing Input. Bitte genau 3 Zahlen angeben");
         console.log("Error processing Input");
       } else if (
         data.seiteA != null &&
@@ -154,6 +155,7 @@ export default {
 
           } else if(data.winkelA != null){
             if(Math.abs(Math.sin(data.winkelA * Math.PI / 180)* data.seiteB/data.seiteA) >1){
+              alert("Berechung ist nicht möglich");
               console.log("berechnung nicht Möglich");
             }else{
               let winkelB = Math.asin(Math.sin(data.winkelA * Math.PI / 180)* data.seiteB/data.seiteA);
@@ -165,6 +167,7 @@ export default {
             }
           }else if(data.winkelB != null){
             if(Math.abs(Math.sin(data.winkelB * Math.PI / 180)* data.seiteA/data.seiteB) >1){
+              alert("Berechung ist nicht möglich");
               console.log("berechnung nicht Möglich");
             }else{
               let winkelA = Math.asin(Math.sin(data.winkelB * Math.PI / 180)* data.seiteA/data.seiteB);
@@ -210,6 +213,7 @@ export default {
 
           }else if(data.winkelA != null){
             if(Math.abs(Math.sin(data.winkelA * Math.PI / 180)* data.seiteC/data.seiteA) >1){
+              alert("Berechung ist nicht möglich");
               console.log("berechnung nicht Möglich");
             }else{
               let winkelC = Math.asin(Math.sin(data.winkelA * Math.PI / 180)* data.seiteC/data.seiteA);
@@ -230,6 +234,7 @@ export default {
 
           }else if(data.winkelC != null){
             if(Math.abs(Math.sin(data.winkelC * Math.PI / 180)* data.seiteA/data.seiteC) >1){
+              alert("Berechung ist nicht möglich");
               console.log("berechnung nicht Möglich");
             }else{
               let winkelA = Math.asin(Math.sin(data.winkelC * Math.PI / 180)* data.seiteA/data.seiteC);
@@ -275,6 +280,7 @@ export default {
 
           }else if(data.winkelB != null){
             if(Math.abs(Math.sin(data.winkelB * Math.PI / 180)* data.seiteC/data.seiteB) >1){
+              alert("Berechung ist nicht möglich");
               console.log("berechnung nicht Möglich");
             }else{
               let winkelC = Math.asin(Math.sin(data.winkelB * Math.PI / 180)* data.seiteC/data.seiteB);
@@ -287,6 +293,7 @@ export default {
 
           }else if(data.winkelC != null){
             if(Math.abs(Math.sin(data.winkelC * Math.PI / 180)* data.seiteB/data.seiteC) >1){
+              alert("Berechung ist nicht möglich");
               console.log("berechnung nicht Möglich");
             }else{
               let winkelB = Math.asin(Math.sin(data.winkelC * Math.PI / 180)* data.seiteB/data.seiteC);
@@ -307,6 +314,7 @@ export default {
             data.seiteb + data.seiteC <= data.seiteA
           ) {
             //Nicht möglich
+            alert("Berechung ist nicht möglich");
             console.log("not possible");
           }
           let winkel1 =
@@ -430,7 +438,8 @@ export default {
         data.winkelB != null &&
         data.winkelC != null
       ) {
-        // Gaht nöd
+        // Gaht 
+        alert("Berechung ist nicht möglich");
         console.log("Nicht möglich");
       }
     },
@@ -512,4 +521,5 @@ input {
   width: 25rem;
   height: 16rem;
 }
+
 </style>
