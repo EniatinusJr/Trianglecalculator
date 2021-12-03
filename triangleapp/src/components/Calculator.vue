@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <div class="triangle">
+      <input type="text" style="border: none; text-align: center; overflow-x: show;" v-model="status.triangleStatus" readonly>
       <img class="image" src="../assets/Dreieck16_2.png" alt="lolz" />
     </div>
     <div class="calculator">
@@ -48,6 +49,9 @@ export default {
     calc() {
       return this.$store.state.calcData;
     },
+    status(){
+      return this.$store.state;
+    }
   },
   methods: {
     clearValues() {
@@ -57,6 +61,7 @@ export default {
       this.$store.commit("updateWinkelA", null);
       this.$store.commit("updateWinkelB", null);
       this.$store.commit("updateWinkelC", null);
+      this.$store.commit("updateStatus", null);
     },
     getValues() {
       let data = this.$store.state.calcData;
@@ -442,6 +447,32 @@ export default {
         alert("Berechung ist nicht möglich");
         console.log("Nicht möglich");
       }
+
+      let counter2 = 0;
+      Object.values(data).forEach((element) => {
+        if (element != null) {
+          counter2++;
+          console.log(counter);
+        }
+      });
+      if(counter == 6){
+        if(data.winkelA < 90 && data.winkelB < 90 && data.winkelB < 90){
+          this.$store.commit("updateStatus", " Spitzwinkeliges Dreieck");
+        }
+        if(data.winkelA < 60 && data.winkelB < 60 && data.winkelB < 60){
+          this.$store.commit("updateStatus", " Gleichseitiges Dreieck");
+        }else if((data.seiteA == data.seiteB) ||(data.seiteA == data.seiteC) || (data.seiteB == data.seiteC)){
+          this.$store.commit("updateStatus", " Gleichschenkliges Dreieck");
+        }
+        if(data.winkelA == 90 || data.winkelB == 90 || data.winkelB == 90){
+          this.$store.commit("updateStatus", " Rechtwinkliges Dreieck");
+        }
+
+      
+
+      }
+      
+
     },
   },
 };
@@ -452,6 +483,10 @@ export default {
 
 .triangle{
   margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .page{
