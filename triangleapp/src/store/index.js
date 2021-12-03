@@ -10,7 +10,7 @@ export default createStore({
       winkelB: null,
       winkelC: null,
     },
-    triangleStatus: "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
+    triangleStatus: ""
   },
   mutations: {
     updateSeiteA (state, num) {
@@ -57,7 +57,7 @@ export default createStore({
     },
     updateStatus (state, text) {
       if(text == null){
-        state.triangleStatus = text;
+        state.triangleStatus = "";
       }else{
         state.triangleStatus = state.triangleStatus + text;
       }

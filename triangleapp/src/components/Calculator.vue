@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="triangle">
-      <input type="text" style="border: none; text-align: center; overflow-x: show;" v-model="status.triangleStatus" readonly>
+      <input type="text" style="border: none; outline:none; text-align: center; width: 100%; font-size: 20px" v-model="status.triangleStatus" readonly>
       <img class="image" src="../assets/Dreieck16_2.png" alt="lolz" />
     </div>
     <div class="calculator">
@@ -455,16 +455,16 @@ export default {
           console.log(counter);
         }
       });
-      if(counter == 6){
+      if(counter2 == 6){
         if(data.winkelA < 90 && data.winkelB < 90 && data.winkelB < 90){
           this.$store.commit("updateStatus", " Spitzwinkeliges Dreieck");
         }
-        if(data.winkelA < 60 && data.winkelB < 60 && data.winkelB < 60){
+        if(data.winkelA == 60.00 && data.winkelB == 60.00 && data.winkelB == 60.00){
           this.$store.commit("updateStatus", " Gleichseitiges Dreieck");
         }else if((data.seiteA == data.seiteB) ||(data.seiteA == data.seiteC) || (data.seiteB == data.seiteC)){
           this.$store.commit("updateStatus", " Gleichschenkliges Dreieck");
         }
-        if(data.winkelA == 90 || data.winkelB == 90 || data.winkelB == 90){
+        if(data.winkelA == 90.00 || data.winkelB == 90.00 || data.winkelB == 90.00){
           this.$store.commit("updateStatus", " Rechtwinkliges Dreieck");
         }
 
