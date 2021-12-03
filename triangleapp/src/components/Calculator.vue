@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="page">
+    <div class="triangle">
+      <img class="image" src="../assets/Dreieck16_2.png" alt="lolz" />
+    </div>
     <div class="calculator">
       <div class="inputSection">
         <div class="inputItem">
@@ -34,10 +37,6 @@
     </div>
     <button class="submit" id="submit" @click="getValues">Submit</button>&emsp;
     <button class="delete" id="submit" @click="clearValues">Clear</button>
-    <br /><br />
-    <div class="triangle">
-      <img class="image" src="../assets/Dreieck16_2.png" alt="lolz" />
-    </div>
   </div>
 </template>
 
@@ -441,8 +440,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.triangle{
+  margin-top: 4rem;
+}
+
 .calculator {
-  margin-top: 5rem;
   width: 100%;
   display: flex;
   flex-direction: row;
