@@ -491,7 +491,7 @@ export default {
 <style scoped>
 
 .triangle{
-  margin-top: 4rem;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
