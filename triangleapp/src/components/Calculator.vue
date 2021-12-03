@@ -457,15 +457,18 @@ export default {
       });
       if(counter2 == 6){
         if(data.winkelA < 90 && data.winkelB < 90 && data.winkelB < 90){
-          this.$store.commit("updateStatus", " Spitzwinkeliges Dreieck");
+          this.$store.commit("updateStatus", " Spitzwinklig");
+        }
+        if(data.winkelA > 90 || data.winkelB > 90 || data.winkelB > 90){
+          this.$store.commit("updateStatus", " Stumpfwinklig");
         }
         if(data.winkelA == 60.00 && data.winkelB == 60.00 && data.winkelB == 60.00){
-          this.$store.commit("updateStatus", " Gleichseitiges Dreieck");
+          this.$store.commit("updateStatus", " Gleichseitig");
         }else if((data.seiteA == data.seiteB) ||(data.seiteA == data.seiteC) || (data.seiteB == data.seiteC)){
-          this.$store.commit("updateStatus", " Gleichschenkliges Dreieck");
+          this.$store.commit("updateStatus", " Gleichschenklig");
         }
         if(data.winkelA == 90.00 || data.winkelB == 90.00 || data.winkelB == 90.00){
-          this.$store.commit("updateStatus", " Rechtwinkliges Dreieck");
+          this.$store.commit("updateStatus", " Rechtwinklig");
         }
 
       
